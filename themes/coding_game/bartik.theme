@@ -1,0 +1,9 @@
+
+function participer_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  $id = $view->storage->id();
+  if ($id == "field_date"){
+   $myFieldValue = $variables['field']->getValue($variables['row']);
+   kint($myFieldValue);
+  }
+}

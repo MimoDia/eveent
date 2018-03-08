@@ -1,0 +1,21 @@
+
+# participer.evenement:
+#  title: 'Evénement'
+#  route_name: participer.participer.form: # une des routes choisie dans le fichier routiong.yml
+#  description: 'Ajout un lien de menu à la barre des menus' 
+#  menu_name: main
+#   
+
+participer.compterendu:
+ title: 'Comptes rendus'
+ description: 'Ajout un lien de 'Compte rendu' menu à la barre des menus' 
+ route_name: participer.compte_rendu  # une des routes choisie dans le fichier routiong.yml
+ menu_name: main
+
+
+
+# participer.form: # doit etre le nom dans le routing.yml
+#  title: 'Comptes rendus'
+#  description: 'Ajout un lien de 'Compte rendu' menu à la barre des menus' 
+#  route_name: participer.participer.form  # une des routes choisie dans le fichier routiong.yml
+#  menu_name: main

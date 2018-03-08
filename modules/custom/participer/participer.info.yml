@@ -1,0 +1,6 @@
+name: participer
+description: module de participation à un événement
+type: module
+core: 8.x
+version: 8.4
+package: Custom

@@ -1,0 +1,7 @@
+mapermission access formBlockToEventPartcicipate:
+ title: 'Ma permission sur le bloc contenant le formulaire de participation à un évenement'
+ description: 'Je fais une permission sur mon bloc de participation à un évenement de part deja crée'
+ description: 'Je fais une permission sur mon bloc de participation à un évenement deja crée'
+ restrict access: 'true'
+
+

@@ -1,0 +1,130 @@
+<?php 
+
+// Chemin qui nous ramen vers le contrilleur de base
+use Drupal\Core\Entity\EntityManager;
+use Drupal\Core\Entity\EntityInterface;
+
+use Drupal\block\Entity\Block; // pour pouvoir utiliser un bloc
+
+use Drupal\node\NodeInterface;
+/***
+implemente hook_user_login
+*/
+function participer_user_login($account){
+//kint($account);
+//die(); // pour eviter de retomber automatiquement dans la page daccueil
+//drupal_set_message(t('Bonjour'),$account->get_current_user(oid),'success');
+// getAccountName()
+drupal_set_message(t('participer and Welcome dear %name !' , array('%name' => $account->getAccountName() ) ) );
+
+
+//drupal_set_message('Bonjour et bienvenue !' .$account->getAccountName());
+}
+
+// user_log et user_logout sont des hook qui doivent etre fai dans ce fichier
+
+function participercachedestructeur_user_logout($account){
+	\Drupal::service('cache_tags.invalidator')->invalidateTags(['ma_session']);
+}
+
+function participercachedestructeur_user_login($account){
+	\Drupal::service('cache_tags.invalidator')->invalidateTags(['ma_session']);
+}
+
+/*
+ exemple de hook qui insert les donnees dun node en BD (hook a remplacer par le nom du module)
+function modulename_node_insert(Drupal|Core|Entity|EntityInterface $node) {
+  db_insert('mytable')
+    ->fields(array(
+    'nid' => $node->id(), 
+    'extra' => $node->extra,
+  ))
+    ->execute();
+}
+*/
+
+// attachement de la librarie participer// Apres avoir avant creer (declarer) ma librarie dans le fichier participer.libraries.yml située à la racine de mon module
+	 function participer_page_attachments(array &$page){
+	 	// J'attache ma librairie que quand le nom de la route ci dessous est appellées dans l'URL qui affiche que les type de contenus "evenement"
+	 	// $routeName = \Drupal::routeMatch()->getParameter('node')->getType()=='evenement';
+
+	 	//if( $routeName =='TRUE'){
+		 $page['#attached']['library'][]= 'participer/participer'; // le 2 participer est le nom de la librarie participer.libraries.yml
+	 //}
+	}
+
+
+
+
+
+/**
+ * Implements hook_block_access().
+ */
+function participer_preprocess_block(&$variables) {
+  $id = $variables['elements']['#plugin_id'];
+  // kint($id); // Affiche tous les les bloc du site et leur id sur la pagen front
+
+  if($id == "participate_event_block") {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $dateDuchamps = $node->get('field_date')->getValue()[0] ;    
+      if(strtotime($dateDuchamps['value']) < time()){
+        unset($variables['content']); // Je supprime le contenu 
+      }
+    }
+  }   
+} 
+
+
+
+/*       OUBIEN
+function certif_page_attachments(array &$page){
+ $routeName = \Drupal::routeMatch()->getRouteName();
+ if ($routeName == 'participer.participer.form') {
+   $page['#attached']['library'][] = 'participer/participer';
+ }
+}*/
+
+/*
+function participer_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit' && $form_id == 'submit_form') {
+      $form['actions'][$action]['#submit'][] = 'participer_form_submit';
+    }
+  }
+}*/
+
+
+/*function participer_preprocess_views_view_field(&$variables) {
+  // kint($variables[view]->getUrl() );
+  kint($variables[field] );
+}
+*/
+/*
+function participer_preprocess_views_view(&$variables) {
+
+  $view= $variables['view'];
+  $field= $variables['field']->getValue($variables['row'];
+
+  $id = $view->storage->id();
+ 
+    // drupal_set_message('<pre>' . print_r($view->result, TRUE) . '</pre>');
+ // kint($view->result);
+ // kint($view->result[0]);
+  // kint($view->result[0]->_entity->field_date->id);
+  // kint($view->result[0]->nid);
+  
+  kint($field);
+}
+*/
+
+/*function participer_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  $id = $view->storage->id();
+  if ($id == "field_date"){
+   $myFieldValue = $variables['field']->getValue($variables['row']);
+   kint($myFieldValue);
+  }
+}
+*/

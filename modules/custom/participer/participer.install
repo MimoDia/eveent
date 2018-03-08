@@ -1,0 +1,77 @@
+<?php
+
+
+function participer_schema(){
+
+	$schema['participer_event_inscription'] = array(
+		'description' => 'This table is used to store user inscription for an event',
+		'fields' 		=> array(
+			'pid'					=> array(  
+										'type' => 'serial',
+										'unsigned' => TRUE,
+										'not null' => TRUE
+									),
+
+			'nid'					=> array(
+										'type' => 'int',
+										'unsigned' => TRUE,
+										'not null' => TRUE
+									),
+
+			'node_title' 	=> array(
+								        'type' => 'varchar',
+								        'length' => 255,
+										'not null' => TRUE
+									),
+
+			'uid'					=> array(
+										'type' => 'int',
+										'unsigned' => TRUE,
+										'not null' => TRUE
+									),
+
+			'nom' 	=> array(
+								        'type' => 'varchar',
+								        'length' => 255,
+										'not null' => TRUE
+									),
+			'email' 	=> array(
+								        'type' => 'varchar',
+								        'length' => 255,
+										'not null' => TRUE
+									),
+
+			'date'					=> array(
+										'type' => 'int',
+										'unsigned' => TRUE,
+										'not null' => TRUE
+									),
+			'choix_participation' 	=> array(
+								        'type' => 'varchar',
+								        'length' => 255,
+										'not null' => TRUE
+									),
+
+		),
+		'foreign keys' 	=> array(
+			'node_field_data' => array(
+							'table' => 'node_field_data',
+							'columns' => array(
+								'nid' => 'nid',
+							),
+			),
+			'users_field_data' => array(
+							'table' => 'users_field_data',
+							'columns' => array(
+								'uid' => 'uid',
+							),
+			),
+		),
+		'primary key' => array(
+			'pid'
+		),
+	);
+
+	return $schema;
+
+}
