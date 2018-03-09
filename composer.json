@@ -19,7 +19,9 @@
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/redirect": "^1.0",
         "drupal/config_split": "^1.3",
-        "drush/drush": "^9.2"
+        "drush/drush": "^9.2",
+        "drupal/audiofield": "1.6",
+        "drupal/video_embed_field": "1.5"
     },
     "replace": {
         "drupal/core": "^8.4"

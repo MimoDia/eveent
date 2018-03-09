@@ -1421,6 +1421,69 @@
         }
     },
     {
+        "name": "drupal/audiofield",
+        "version": "1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/audiofield",
+            "reference": "8.x-1.6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.6.zip",
+            "reference": "8.x-1.6",
+            "shasum": "bd63641c2ed9e9774b82423bf03c95540b395126"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.6",
+                "datestamp": "1514414884",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Moberly",
+                "homepage": "https://www.drupal.org/u/danielmoberly",
+                "role": "Maintainer"
+            },
+            {
+                "name": "josipsaric",
+                "homepage": "https://www.drupal.org/user/3063287"
+            },
+            {
+                "name": "msajko",
+                "homepage": "https://www.drupal.org/user/3483723"
+            },
+            {
+                "name": "tamerzg",
+                "homepage": "https://www.drupal.org/user/464564"
+            }
+        ],
+        "description": "AudioField Module",
+        "homepage": "https://www.drupal.org/project/audiofield",
+        "support": {
+            "source": "http://cgit.drupalcode.org/audiofield",
+            "issues": "https://www.drupal.org/project/issues/audiofield"
+        }
+    },
+    {
         "name": "drupal/better_exposed_filters",
         "version": "3.0.0-alpha3",
         "version_normalized": "3.0.0.0-alpha3",
@@ -2460,6 +2523,69 @@
         "homepage": "https://www.drupal.org/project/token",
         "support": {
             "source": "http://cgit.drupalcode.org/token"
+        }
+    },
+    {
+        "name": "drupal/video_embed_field",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/video_embed_field",
+            "reference": "8.x-1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-1.5.zip",
+            "reference": "8.x-1.5",
+            "shasum": "f54d470ef7f863604e51e6ae98cd40ef25de5f79"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "require-dev": {
+            "drupal/colorbox": "*",
+            "drupal/media_entity": "*",
+            "drupal/media_entity_embeddable_video": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.x",
+                "datestamp": "1510132373",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                },
+                "package": "Field types"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Sam152",
+                "homepage": "https://www.drupal.org/user/1485048"
+            },
+            {
+                "name": "jec006",
+                "homepage": "https://www.drupal.org/user/855980"
+            },
+            {
+                "name": "plopesc",
+                "homepage": "https://www.drupal.org/user/282415"
+            }
+        ],
+        "description": "A pluggable field type for storing videos from external video hosts such as Vimeo and YouTube.",
+        "homepage": "https://www.drupal.org/project/video_embed_field",
+        "support": {
+            "source": "http://cgit.drupalcode.org/video_embed_field"
         }
     },
     {
